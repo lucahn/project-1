@@ -120,4 +120,48 @@ $("#clearDef").on("click", function(event) {
 
 });
 
+document.addEventListener('mouseup', function getSelectionText() {
+    
+    var selectedText = "";
+
+    if (window.getSelection) { // all modern browsers and IE9+
+    selectedText = window.getSelection().toString();
+    }
+
+    console.log (selectedText);
+        event.preventDefault();
+        var defBox = $("#def-box");
+        // console.log(def.val());
+    
+        defBox.empty();
+    
+    var queryURLDef = "http://api.urbandictionary.com/v0/define?term=" + selectedText;
+    
+        $.ajax({
+            url: queryURLDef,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
+    
+            var defDiv = $("<div class='definitions'>");
+            var defInfo = response.list;
+    
+            for (var i = 0; i < defInfo.length; i++) {
+                
+                var DefNum = (defInfo[i].word);
+                var displayNum = $("<h3>").text('Definition of "' + DefNum + '" :');
+                displayNum.addClass("defTitle");
+    
+                var defMean = (defInfo[i].definition);
+                var displayDef = $("<p>").text('"' + defMean + '"');
+                displayDef.addClass("defBody");
+    
+                defDiv.append(displayNum, displayDef);
+                defBox.append(defDiv);
+            }
+        });
+    
+});
+
+
 });
