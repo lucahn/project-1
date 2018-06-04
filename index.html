@@ -1,125 +1,198 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-<head>
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ====== -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <title>The Streets Is Talking</title>
 
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    </head>
 
-<!-- ====== -->
+    <body>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/main.js"></script>
+        <br/>
 
-    <title>LYRICS</title>
+        <header>
 
-</head>
-
-
-
-<body>
-
-    <header>What Does This Mean?</header>
-
-    <div class="container">
-        <div class="card">
-            
-            <div class="card-header">
-                <i class="far fa-lyrics">Song Search</i>
-            </div>
-
-            <div class="card-body">
-                <form id="seach-form">
-
-                    <div class="form-group">
-                        <label for="search-term">Song Name</label>
-                        <input type="text" class="form-control" id="term-input1" placeholder="Enter keywords">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="search-term">Artist Name</label>
-                        <input type="text" class="form-control" id="term-input2" placeholder="Enter keywords">
-                    </div>
-                  
-                    <button id="searchLyrics" type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
-                    <button id="clearSearch" type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Clear</button>
-
-                </form>
-            </div>
+            <div id="title">The <span id="streetText">Streets</span> Is Talking</div>
+        
+        </header>
+        
+        <div class="container">
                 
-        </div>    
-    </div>
+            <div class="row">
+                    
+                <div class="col-md-7" id="col1">
+                    <iframe id="video" width="640" height="360" src="https://www.youtube.com/embed/xpVfcZ0ZcFM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        
+                    <br/>
+                    <br/>
 
-<!-- <=====> -->
+                    <center>
+                        
+                    <div id="searchBTN">
+                    <input class="searchBar" type="text" placeholder="YouTube Search">
+                    <button class="submitBTN" type="submit">Submit</button>
+                        
+                    <br/>
+                    <br/>
+                        
+                    <input class="searchBar" type="text" placeholder="Urban Dictionary">
+                    <button class="submitBTN" type="submit">Submit</button>
+                        
+                    </div>
+                        
+                    <br/>
+                        
+                    <button id="clear-result" type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Clear Results</button>
+                        
+                    </center>
 
-    <div class="container">
-        <div class="card">
-                
-            <div class="card-header">
-                <i class="far fa-lyrics">Term Search</i>
-            </div>
-    
-        <div class="card-body">
-            <form id="seach-formDef">
-                <div class="form-group">
+                    <p id="text1">
+                        cray cray: 
+                        <br/>
+                         meaning really crazy
+                        <br/>
+                        <br/>
+                        chain:
+                        <br/>
+                        Modern definition: Bling worn around the neck, often made of gold, silver, or platinum. Featured in a Jibbs song. 
+                        <br/>
+                        <br/>
+                        AP:
+                        <br/>
+                        AP is a jewelry brand from switzerland which can cost up to 39k
+                        damn offset got that new ap watch its shining
+                        <br/>
+                        <br/>
+                        Woke: 
+                        <br/>
+                        Although an incorrect tense of awake, a reference to how people should be aware in current affairs.
+                        <br/>
+                        <br/>
+                        Low key:
+                        <br/>
+                        To be secretive about something Such as crushes,events,Etc.
+                        Person-I low key have a crush on (so and so)
+                        <br/>
+                        <br/>
+                        froze:
+                        <br/>
+                        to be chilled. to be in the state of chillin out. kickin back. enjoying the vibe. relaxing in a good mood. usually at a party after a few drinks.
+                    </p>
 
-                    <label for="definition">Lyric Definition:</label>
-                    <input type="text" class="form-control" id="definition" placeholder="Definition">
+
+
+                </div>
+                    
+                <div class="col-md-4" id="col2">
+                        
+                    <br/>
+                    <br/>
+
+                    <center>
+
+                    <input class="searchBar" type="text" placeholder="Lyric Artist Search">
+                    <button class="submitBTN" type="submit">Submit</button>
+                        
+                    <br/>
+                    <br/>
+                        
+                    <input class="searchBar" type="text" placeholder="Lyric Feat. Artist Search">
+                    <button class="submitBTN" type="submit">Submit</button>
+                        
+                    </center>
+
+                    <p id="lyrics">
+                        Drake - God's Plan
+                        <br/>
+                        <br/>
+                        Yeah they wishin' and wishin' and wishin' and wishin'
+                        They wishin' on me, yuh
+                        I been movin' calm, don't start no trouble with me
+                        Tryna keep it peaceful is a struggle for me
+                        Don’t pull up at 6 AM to cuddle with me
+                        You know how I like it when you lovin' on me
+                        I don’t wanna die for them to miss me
+                        Yes I see the things that they wishin' on me
+                        Hope I got some brothers that outlive me
+                        They gon' tell the story, shit was different with me
+                        God's plan, God's plan
+                        I hold back, sometimes I won't, yuh
+                        I feel good, sometimes I don't, ay, don't
+                        I finessed down Weston Road, ay, 'nessed
+                        Might go down a G.O.D., yeah, wait
+                        I go hard on Southside G, yuh, Way
+                        I make sure that north-side eat
+                        And still
+                        Bad things
+                        It's a lot of bad things
+                        That they wishin' and wishin' and wishin' and wishin'
+                        They wishin' on me
+                        Bad things
+                        It's a lot of bad things
+                        That they wishin' and wishin' and wishin' and wishin'
+                        They wishin' on me
+                        Yuh, ay, ay
+                        She say, "Do you love me?" I tell her, "Only partly"
+                        I only love my bed and my momma, I'm sorry
+                        Fifty Dub, I even got it tatted on me
+                        81, they'll bring the crashers to the party
+                        And you know me
+                        Turn the O2 into the O3, dog
+                        Without 40, Oli', there'd would be no me
+                        Imagine if I never met the broskies
+                        God's plan, God's plan
+                        I can't do this on my own, ay, no, ay
+                        Someone watchin' this shit close, yep, close
+                        I've been me since Scarlett Road, ay, road, ay
+                        Might go down as G.O.D., yeah, wait
+                        I go hard on Southside G, ay, Way
+                        I make sure that north-side eat, yuh
+                        And still
+                        Bad things
+                        It's a lot of bad things
+                        That they wishin' and wishin' and wishin' and wishin'
+                        They wishin' on me
+                        Yeah, yeah
+                        Bad things
+                        It's a lot of bad things
+                        That they wishin' and wishin' and wishin' and wishin'
+                        They wishin' on me
+                        Yeah
+                        Songwriters: Aubrey Graham / Noah Shebib / Matthew Samuels / Ronald LaTour / Daveon Jackson
+                        God's Plan lyrics © Sony/ATV Music Publishing LLC, Universal Music Publishing Group, The Administration MP, Inc
+                    </p>
 
                 </div>
 
-                <div id="def-box"></div>
+            </div>
 
-                <button id="searchDef" type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
-                <button id="clearDef" type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Clear All</button>
-
-            </form>    
         </div>
 
-        </div>    
-    </div>
+        <footer>
 
-<!-- <=====> -->
+            <center>
 
-    <div class="container">
-        <div class="card">
+                <i class="fas fa-music"></i><i class="fas fa-headphones"></i>
+                &copy; K.A.Z. 2018 
             
-            <div class="card-header">
-                <i class="far fa-lyrics">Search Results</i>
-            </div>
-            
-            <div class="card-body">
-                <form id="seach-form">
-                    
-                    <div id="video"></div>
-                    <div id="lyrics"></div>
+            </center>
 
-                </form>
-            </div>
+        </footer>
 
-        </div>       
-    </div>
+        <script type="text/javascript" src="assets/javascript/main.js"></script>    
+    
+    </body>
 
-<!-- <=====> -->
-
-    <footer>
-      
-        &copy; 2018 <i class="fas fa-users"></i>
-      
-    </footer>
-
-</body>
-
-</body>
 </html>
