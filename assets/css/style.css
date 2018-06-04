@@ -59,7 +59,7 @@ header {
     width: 95%;
 }
 
-#searchBTN {
+#searchLyrics {
     margin-top: 13px;
 }
 
@@ -75,13 +75,13 @@ header {
     color: white;
 }
 
-#clear-result {
+#clearDef {
     background: black;
     border: 1px solid rgb(212, 2, 2);
     color: rgb(212, 2, 2);
 }
 
-#text1 {
+#def-box {
     color: white;
     margin-bottom: 5px;
     margin-left: 15px;

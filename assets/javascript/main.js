@@ -6,15 +6,12 @@ $("#searchLyrics").on("click", function(event) {
 
     var song = $("#term-input1");
     var artist = $("#term-input2");
-    var featInput = $("#term-input3");
-    var featBtn = $("#featBtn");
+    var title = $("#songTitle");
     var lyric = $("#lyrics");
     var video = $("#video");
 
-    // console.log(song.val());
-    // console.log(artist.val());
-
-    // var queryURLLyrics = "https://orion.apiseeds.com/api/music/lyric/" + artist.val() + "/" + song.val() + featBtn.val() + featInput.val() + "?apikey=I6FRfqAouaWWqBqEb1CCTzwGRcSo86ISnzt4CSJQRZAxnLhju0xcAo8sakVxTENh";
+    console.log(song.val());
+    console.log(artist.val());
 
     var queryURLLyrics = "https://cors-anywhere.herokuapp.com/https://lyric-api.herokuapp.com/api/find/" + artist.val() + "/" + song.val();
 
@@ -35,13 +32,18 @@ $("#searchLyrics").on("click", function(event) {
         url: queryURLVideo,
         method: "GET"
     }).then(function(response) {
-        // console.log(response);
+        console.log(response);
 
+        var songTitle = response.items[0].snippet.title;
+        var titleDisplay = $("<h3>");
         var songId = response.items[0].id.videoId;
         var videoPlayer = $("<iframe>");
         var videoLink = "https://www.youtube.com/embed/" + songId;
 
-        // console.log(songId);
+        console.log(songId);
+
+        titleDisplay.html(songTitle);
+        titleDisplay.addClass("title");
 
         videoPlayer.attr("src", videoLink);
         videoPlayer.attr("frameborder='0'");
@@ -49,6 +51,7 @@ $("#searchLyrics").on("click", function(event) {
         videoPlayer.attr("width", "640");
 
         video.html(videoPlayer);
+        title.html(titleDisplay);
     });
 });
 
