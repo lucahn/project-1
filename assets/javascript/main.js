@@ -14,9 +14,9 @@ $("#searchLyrics").on("click", function(event) {
     // console.log(song.val());
     // console.log(artist.val());
 
-    var queryURLLyrics = "https://orion.apiseeds.com/api/music/lyric/" + artist.val() + "/" + song.val() + featBtn.val() + featInput.val() + "?apikey=I6FRfqAouaWWqBqEb1CCTzwGRcSo86ISnzt4CSJQRZAxnLhju0xcAo8sakVxTENh";
+    // var queryURLLyrics = "https://orion.apiseeds.com/api/music/lyric/" + artist.val() + "/" + song.val() + featBtn.val() + featInput.val() + "?apikey=I6FRfqAouaWWqBqEb1CCTzwGRcSo86ISnzt4CSJQRZAxnLhju0xcAo8sakVxTENh";
 
-    // var queryURL1 = "https://lyric-api.herokuapp.com/api/find/" + artist.val() + "/" + song.val();
+    var queryURLLyrics = "https://lyric-api.herokuapp.com/api/find/" + artist.val() + "/" + song.val();
 
     $.ajax({
         url: queryURLLyrics,
@@ -35,7 +35,7 @@ $("#searchLyrics").on("click", function(event) {
         url: queryURLVideo,
         method: "GET"
     }).then(function(response) {
-        // console.log(response);
+        console.log(response);
 
         var songId = response.items[0].id.videoId;
         var videoPlayer = $("<iframe>");
