@@ -80,8 +80,6 @@ $("#searchLyrics").on("click", function(event) {
 });
 
 
-
-
 $("#searchDef").on("click", function(event) {
 
     event.preventDefault();
@@ -118,32 +116,6 @@ $("#searchDef").on("click", function(event) {
         }
 
     });
-
-});
-
-$("#clearSearch").on("click", function(event) {
-
-    event.preventDefault();
-
-    var song = $("#term-input1");
-    var artist = $("#term-input2");
-    var featInput = $("#term-input3");
-
-    song.val("");
-    artist.val("");
-    featInput.val("");
-
-});
-
-$("#clearDef").on("click", function(event) {
-
-    event.preventDefault();
-
-    var def = $("#definition");
-    var defBox = $("#def-box");
-
-    def.val("");
-    defBox.empty();
 
 });
 
@@ -193,5 +165,30 @@ document.addEventListener('mouseup', function getSelectionText(){
     
 });
 
+$("#clearSearch").on("click", function(event) {
+
+    event.preventDefault();
+
+    var song = $("#term-input1");
+    var artist = $("#term-input2");
+    var featInput = $("#term-input3");
+
+    song.val("");
+    artist.val("");
+    featInput.val("");
+
+});
+
+$("#clearDef").on("click", function(event) {
+
+    event.preventDefault();
+
+    var def = $("#definition");
+    var defBox = $("#def-box");
+
+    def.val("");
+    defBox.empty();
+
+});
 
 });
