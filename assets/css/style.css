@@ -24,7 +24,6 @@ header {
     text-shadow: 0 0 5px white, 0 0 19px rgb(255, 0, 0);
     padding-left: 30px;
     margin-top: 5px;
-    margin-left: 40px;
     font-size: 90px;
     font-family: Mostwasted;
 }
@@ -126,5 +125,5 @@ footer {
 }
 
 ::-webkit-scrollbar {
-    color: black;
+    background: black;
 }
