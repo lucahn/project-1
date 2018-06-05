@@ -92,7 +92,7 @@ $("#searchDef").on("click", function(event) {
 
     defBox.empty();
 
-    var queryURLDef = "http://api.urbandictionary.com/v0/define?term=" + def.val();
+    var queryURLDef = "https://api.urbandictionary.com/v0/define?term=" + def.val();
 
     $.ajax({
         url: queryURLDef,
