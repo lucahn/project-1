@@ -163,7 +163,7 @@ document.addEventListener('mouseup', function getSelectionText(){
     
         defBox.empty();
     
-    var queryURLDef = "http://api.urbandictionary.com/v0/define?term=" + selectedText;
+    var queryURLDef = "https://api.urbandictionary.com/v0/define?term=" + selectedText;
     
         $.ajax({
             url: queryURLDef,
