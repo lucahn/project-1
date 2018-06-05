@@ -10,6 +10,19 @@ $("#searchLyrics").on("click", function(event) {
     var lyric = $("#lyrics");
     var video = $("#video");
 
+    if (song.val() === "" || artist.val() === "") {
+
+    title.empty();
+    video.empty();
+    lyric.empty();
+
+    lyric.html("<h4>Please submit BOTH the Song & the Artist name!</h4>");
+    return;
+    
+    }
+
+    else {
+
     console.log(song.val());
     console.log(artist.val());
 
@@ -19,41 +32,57 @@ $("#searchLyrics").on("click", function(event) {
         url: queryURLLyrics,
         method: "GET"
     }).then(function(response) {
-        // console.log(response);
-        var words = response.lyric;
-        var temp = words.replace(/\n/ig, "<br />");
-        // console.log(temp)
-        lyric.html(temp);
-    });
-
-    var queryURLVideo = "https://www.googleapis.com/youtube/v3/search?q=" + artist.val() + song.val() + "&order=relevance&part=snippet&type=video&maxResults=5&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE";
-
-    $.ajax ({
-        url: queryURLVideo,
-        method: "GET"
-    }).then(function(response) {
         console.log(response);
+        
+        var words = response.lyric;
+        var print = words.replace(/\n/ig, "<br />");
+        // console.log(print)
 
-        var songTitle = response.items[0].snippet.title;
-        var titleDisplay = $("<h3>");
-        var songId = response.items[0].id.videoId;
-        var videoPlayer = $("<iframe>");
-        var videoLink = "https://www.youtube.com/embed/" + songId;
+        if (response.err === "not found") {
+            title.empty();
+            video.empty();
+            lyric.empty();
 
-        console.log(songId);
+            lyric.html('<h1>No results!</h1><h6>Please check inputs for spelling and apostrophes!</h6>');
+        }
 
-        titleDisplay.html(songTitle);
-        titleDisplay.addClass("title");
+        else {
+            lyric.html(print);
 
-        videoPlayer.attr("src", videoLink);
-        videoPlayer.attr("frameborder='0'");
-        videoPlayer.attr("height", "360");
-        videoPlayer.attr("width", "640");
+            var queryURLVideo = "https://www.googleapis.com/youtube/v3/search?q=" + artist.val() + song.val() + "&order=relevance&part=snippet&type=video&maxResults=5&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE";
 
-        video.html(videoPlayer);
-        title.html(titleDisplay);
+            $.ajax ({
+                url: queryURLVideo,
+                method: "GET"
+            }).then(function(response) {
+                console.log(response);
+
+                var songTitle = response.items[0].snippet.title;
+                var titleDisplay = $("<h3>");
+                var songId = response.items[0].id.videoId;
+                var videoPlayer = $("<iframe>");
+                var videoLink = "https://www.youtube.com/embed/" + songId;
+
+                console.log(songId);
+
+                titleDisplay.html(songTitle);
+                titleDisplay.addClass("title");
+
+                videoPlayer.attr("src", videoLink);
+                videoPlayer.attr("frameborder='0'");
+                videoPlayer.attr("height", "360");
+                videoPlayer.attr("width", "640");
+
+                video.html(videoPlayer);
+                title.html(titleDisplay);
+            });
+        }
     });
+    }
 });
+
+
+
 
 $("#searchDef").on("click", function(event) {
 
@@ -120,12 +149,13 @@ $("#clearDef").on("click", function(event) {
 
 });
 
-document.addEventListener('mouseup', function getSelectionText() {
-    
-    var selectedText = "";
-
-    if (window.getSelection) { // all modern browsers and IE9+
-    selectedText = window.getSelection().toString();
+document.addEventListener('mouseup', function getSelectionText(){
+    var selectedText;
+    if (window.getSelection().baseNode.parentNode.id === "lyrics"){ // all modern browsers and IE9+
+            selectedText = window.getSelection().toString();
+    }
+    else {
+        return;
     }
 
     console.log (selectedText);
@@ -159,6 +189,8 @@ document.addEventListener('mouseup', function getSelectionText() {
                 defDiv.append(displayNum, displayDef);
                 defBox.append(defDiv);
             }
+            
+
         });
     
 });
