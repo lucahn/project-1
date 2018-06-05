@@ -41,6 +41,19 @@ $("#searchLyrics").on("click", function(event) {
             video.empty();
             lyric.empty();
 
+            var queryURLVideo = "https://www.googleapis.com/youtube/v3/search?q=" + artist.val() + song.val() + "&order=relevance&part=snippet&type=video&maxResults=5&key=AIzaSyCR5In4DZaTP6IEZQ0r1JceuvluJRzQNLE";
+
+            $.ajax ({
+                url: queryURLVideo,
+                method: "GET"
+            }).then(function(response) {
+                console.log(response);
+
+                var songTitle = response.items[0].snippet.title;
+
+                title.html('<h5>Suggested Input: "' + songTitle + '"</h5>');
+            });
+
             lyric.html('<h1>No results!</h1><h6>Please check inputs for spelling and apostrophes!</h6>');
         }
 
