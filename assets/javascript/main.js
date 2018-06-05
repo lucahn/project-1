@@ -17,8 +17,6 @@ $("#searchLyrics").on("click", function(event) {
     lyric.empty();
 
     lyric.html("<h4>Please submit BOTH the Song & the Artist name!</h4>");
-    return;
-    
     }
 
     else {
